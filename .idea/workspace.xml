@@ -1,30 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="54a21d72-04f5-4bf5-9152-c1a9fc7a35bc" name="Changes" comment="" />
+    <list default="true" id="54a21d72-04f5-4bf5-9152-c1a9fc7a35bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CosmicPerturbationHypothesis.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CosmologicalTestResultsAnalysis.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FibonacciCosmologyAnalysis.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LicenseAgreement.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bh_phi_ratios.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmb_forecast.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmb_osc_detector_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/continuous_fibonacci.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extract_desi_pk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fibonacci_cosmology_falsified.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fibonacci_perturbations.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast_plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hz_fitter_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hz_forecast.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/n_body_fib_dual.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snippet2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snippet3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/facc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/facc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmb_osc_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmb_osc_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetch_desi_bao_pk.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_desi_bao_pk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hz_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hz_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hz_fitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/hz_fitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lss_phi_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lss_phi_analyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pk_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pk_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippet.py" beforeDir="false" afterPath="$PROJECT_DIR$/snippet.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="34bvqx7e7shcmdxlTOgGPks9mQt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;LaTeX.fibonacci_cosmology_falsified.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.cmb_forecast.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cmb_osc_detector.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cmb_osc_detector_v2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.continuous_fibonacci.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extract_desi_pk.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fetch_desi_bao_pk.executor&quot;: &quot;Run&quot;,
+    &quot;Python.forecast_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hz_fitter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hz_fitter_v2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hz_forecast.executor&quot;: &quot;Run&quot;,
+    &quot;Python.local_code_data_access.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lss_phi_analyzer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.n_body_fib_dual.executor&quot;: &quot;Run&quot;,
+    &quot;Python.snippet.executor&quot;: &quot;Run&quot;,
+    &quot;Python.snippet2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.snippet3.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;junie.application.models&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -40,10 +117,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1761495280952</updated>
+      <workItem from="1761495281971" duration="13369000" />
+      <workItem from="1761538876623" duration="600000" />
+      <workItem from="1761540202964" duration="14751000" />
+      <workItem from="1761670894425" duration="4174000" />
+      <workItem from="1761690221809" duration="598000" />
+      <workItem from="1762038904387" duration="606000" />
+      <workItem from="1762187510248" duration="1601000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/facc$hz_fitter.coverage" NAME="hz_fitter Coverage Results" MODIFIED="1761669924525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$extract_desi_pk.coverage" NAME="extract_desi_pk Coverage Results" MODIFIED="1761585669720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$continuous_fibonacci.coverage" NAME="continuous_fibonacci Coverage Results" MODIFIED="1761542324130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$forecast_plots.coverage" NAME="forecast_plots Coverage Results" MODIFIED="1761673354288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$local_code_data_access.coverage" NAME="local_code_data_access Coverage Results" MODIFIED="1761664761218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$snippet3.coverage" NAME="snippet3 Coverage Results" MODIFIED="1761585888742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$lss_phi_analyzer.coverage" NAME="lss_phi_analyzer Coverage Results" MODIFIED="1761670051244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$hz_fitter_v2.coverage" NAME="hz_fitter_v2 Coverage Results" MODIFIED="1761586362573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$snippet2.coverage" NAME="snippet2 Coverage Results" MODIFIED="1761586418173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$cmb_forecast.coverage" NAME="cmb_forecast Coverage Results" MODIFIED="1761673568401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$n_body_fib_dual.coverage" NAME="n_body_fib_dual Coverage Results" MODIFIED="1761586737050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$cmb_osc_detector.coverage" NAME="cmb_osc_detector Coverage Results" MODIFIED="1761669996538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$fetch_desi_bao_pk.coverage" NAME="fetch_desi_bao_pk Coverage Results" MODIFIED="1761501849328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$snippet.coverage" NAME="snippet Coverage Results" MODIFIED="1761672201175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$hz_forecast.coverage" NAME="hz_forecast Coverage Results" MODIFIED="1761673617242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$cmb_osc_detector_v2.coverage" NAME="cmb_osc_detector_v2 Coverage Results" MODIFIED="1761587924582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

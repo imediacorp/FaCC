@@ -1,0 +1,129 @@
+% fibonacci_cosmology_falsified.tex
+% ------------------------------------------------------------
+% A Falsified Fibonacci Cosmological Constant
+% Bryan David Persaud
+% October 2025
+% ------------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{The Fibonacci Cosmological Constant:\\A Falsified Hypothesis}
+\author{Bryan David Persaud\\[1em]
+\small Intermedia Communications Corp.\\
+\small \texttt{bryan@imediacorp.com}}
+\date{October 2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We propose that the cosmological constant arises from Fibonacci recursion in the cosmic scale factor, yielding $\Lambda_\phi = 3 (\ln \phi)^2 / t_0^2$ where $\phi = (1+\sqrt{5})/2$.
+Testing against 35 cosmic-chronometer $H(z)$ measurements, linear matter power spectrum $P(k)$, and low-$\ell$ CMB temperature anisotropies, we obtain $\Lambda_\phi = 4.82 \times 10^{-37}$\,m$^{-2}$---15 orders of magnitude too large---with $\Delta\chi^2 = 1364$ relative to $\Lambda$CDM.
+A single weak $\phi$-scale in $P(k)$ residuals and no log-periodic CMB signal are observed.
+The Fibonacci hypothesis is \textbf{ruled out} as the origin of cosmic acceleration.
+\end{abstract}
+
+\section{Introduction}
+The cosmological constant $\Lambda$ remains one of the deepest puzzles in physics \cite{Weinberg1989}.
+The Golden Ratio $\phi$ appears ubiquitously in nature, prompting speculation that recursive self-similarity might underlie cosmic expansion \cite{Livio2002}.
+We derive a cosmological constant from a Fibonacci-inspired scale factor $a(t) = \exp[(\ln\phi) t / t_0]$ and test it empirically.
+
+\section{The Model}
+The Friedmann equation for a flat universe dominated by $\Lambda$ is
+\[
+\left(\frac{\dot a}{a}\right)^2 = \frac{\Lambda}{3}.
+\]
+With $a(t) = \exp[(\ln\phi) t / t_0]$, we obtain
+\[
+\Lambda_\phi = \frac{3(\ln\phi)^2}{t_0^2}.
+\]
+Including matter perturbatively gives
+\[
+H(z) = \frac{\ln\phi}{t_0} \sqrt{\Omega_m (1+z)^3 + (1-\Omega_m)}.
+\]
+
+\section{Empirical Tests}
+
+\subsection{$H(z)$ Expansion History}
+Using 35 cosmic-chronometer measurements \cite{Moresco2016}, we fix $\Omega_m = 0.3$ and fit $t_0$.
+Best-fit values:
+\begin{itemize}
+  \item $t_0 = 1.20 \times 10^{18}$\,s
+  \item $H_0^\mathrm{eff} = 12.37$\,km/s/Mpc
+  \item $\Lambda_\phi = 4.82 \times 10^{-37}$\,m$^{-2}$
+  \item $\chi^2 = 1379.31$ (dof = 34)
+\end{itemize}
+The $\Lambda$CDM fit yields $\chi^2 = 14.60$, $\Delta\chi^2 = 1364.71$.
+Figure \ref{fig:hz} shows the mismatch.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{hz_comparison_real.png}
+\caption{$H(z)$ fit. Fibonacci model (red) fails.}
+\label{fig:hz}
+\end{figure}
+
+\subsection{Matter Power Spectrum}
+Linear $P(k)$ from CAMB shows no direct peaks.
+Residuals reveal one oscillation at $k = 0.015$\,$h$/Mpc, marginally consistent with $\phi^{-1} k_\mathrm{BAO} = 0.0124$\,$h$/Mpc.
+This is 1/11 expected scales and statistically insignificant (Figure \ref{fig:pk}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{pk_phi_real.png}
+\caption{$P(k)$ residuals. One weak peak.}
+\label{fig:pk}
+\end{figure}
+
+\subsection{CMB Temperature Anisotropies}
+Fitting low-$\ell$ residuals with $\Delta C_\ell = A \cos(2\pi \log \ell / \ln \phi + \phi_0)$ yields
+\[
+A = -0.33 \pm 11.49~\mu\mathrm{K}^2 \quad (0.0\sigma).
+\]
+No log-periodic signal (Figure \ref{fig:cmb}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{cmb_osc_real.png}
+\caption{CMB residuals. No Fibonacci harmonics.}
+\label{fig:cmb}
+\end{figure}
+
+\section{Conclusion}
+The Fibonacci recursion predicts a cosmological constant 15 orders too large and fails all tests.
+The hypothesis is \textbf{ruled out}.
+Future work may explore $\phi$-modulated perturbations, but the current model is falsified.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Parameter & Fibonacci & $\Lambda$CDM \\
+\midrule
+$\Omega_m$ & 0.30 (fixed) & 0.319 \\
+$H_0$ (km/s/Mpc) & 12.37 & 68.17 \\
+$\Lambda$ (m$^{-2}$) & $4.82 \times 10^{-37}$ & — \\
+$\chi^2$ ($H(z)$) & 1379.31 & 14.60 \\
+P(k) $\phi$-matches & 1/11 (weak) & — \\
+CMB amplitude & $0.0\sigma$ & — \\
+\bottomrule
+\end{tabular}
+\caption{Model comparison.}
+\label{tab:comparison}
+\end{table}
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{Weinberg1989} Weinberg, S. 1989, \textit{Rev. Mod. Phys.}, \textbf{61}, 1
+\bibitem{Livio2002} Livio, M. 2002, \textit{The Golden Ratio}
+\bibitem{Moresco2016} Moresco, M. et al. 2016, \textit{J. Cosmol. Astropart. Phys.}, \textbf{05}, 014
+\end{thebibliography}
+
+\end{document}

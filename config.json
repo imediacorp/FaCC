@@ -1,0 +1,18 @@
+{
+  "hz": {
+    "t0_bounds": [1e-20, 1e-15],
+    "h0_guess": 70.0
+  },
+
+  "lss": {
+    "k_bao": 0.02,
+    "tolerance": 0.01,
+    "peak_prominence_factor": 0.5
+  },
+
+  "cmb": {
+    "poly_degree": 6,
+    "min_sigma_floor": 10.0,
+    "oscillation_amplitude_guess": 1e-6
+  }
+}
