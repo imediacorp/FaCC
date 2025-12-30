@@ -1,61 +1,370 @@
-# Fibonacci Cosmology: Falsified Hypothesis & Testable Alternative
+# Fibonacci Cosmology: Falsified Background, Testable Perturbations
 
-**Bryan David Persaud**  
-Intermedia Communications Corp.  
-bryan@imediacorp.com
+Author: Bryan David Persaud  
+Affiliation: Intermedia Communications Corp.  
+Contact: bryan@imediacorp.com
 
-## Summary
+---
 
-Two papers exploring whether the Golden Ratio (φ = 1.618...) appears in cosmology:
+## Overview
+This repository accompanies two complementary works investigating whether the Golden Ratio (φ ≈ 1.618) manifests in cosmology:
 
-### Paper 1: Falsified Background Model
-**"The Fibonacci Cosmological Constant: A Falsified Hypothesis"**
+1) Background model (falsified): tests φ-recursion in the expansion history. Result: decisively ruled out by H(z), CMB low-ℓ, and P(k) data.
+2) Perturbation model (falsifiable): proposes weak log-periodic modulations in structure growth, yielding φ-spaced features in the matter power spectrum and CMB. Provides concrete forecasts for near-future surveys.
 
-- Tests whether φ-recursion in the scale factor can explain cosmic acceleration
-- **Result: RULED OUT**
-  - Predicted Λ is 15 orders of magnitude too large
-  - H₀ = 12.37 km/s/Mpc (should be ~68)
-  - Δχ² = 1364 vs ΛCDM
-  - No CMB log-periodic signal (0σ)
-  - Only 1/11 predicted φ-scales in P(k)
+The code here reproduces the core figures, basic fits, and forecast visuals, and lets you explore signals using public summary datasets.
 
-### Paper 2: Testable Perturbation Model
-**"Log-Periodic Perturbations from Fibonacci Recursion"**
+**Note on Independence**: This cosmological research work is completely independent and separate from any other projects. It originated as a simple thought experiment and hypothesis that the Golden Ratio (Fibonacci sequence) might be fundamental to cosmic structure, given the self-similarity patterns observed from plants to galaxies. This work has no connection or linkage to any other Fibonacci-related research projects or modules.
 
-- Proposes φ-oscillations in structure formation (not background expansion)
-- **Predictions:**
-  - Sub-BAO wiggles in P(k) at k = φⁿ k_BAO
-  - Log-periodic CMB acoustic peaks at ℓ = φᵐ ℓ_peak
-- **Forecasts:**
-  - DESI Y6 (2026): >5σ detection
-  - Euclid (2027): >8σ detection
-  - CMB-S4 (2030): >3σ detection
-- **Falsifiable:** If no signal by 2030, hypothesis dies cleanly
+### Theorem overview (short)
+- Golden Ratio as recursive constant: The hypothesis explores φ as a fundamental recursion constant. In a background variant (now falsified), φ enters the expansion rate via recursive scaling; in the perturbation variant, φ induces log-periodic modulations in clustering statistics.
+- Duality for perturbations: Two coupled modes appear naturally — a forward (φ) and a conjugate (φ−1) branch — leading to a dual log-periodic signature. In practice, this means residuals may contain cosines periodic in log(k) or log(ℓ) with periods set by ln(φ) and ln(φ−1).
+- Falsifiable prediction: If these dual log-periodic features are absent at the sensitivity of current/forthcoming surveys, the perturbation hypothesis is ruled out.
+
+---
 
 ## Papers
+- fibonacci_cosmology_falsified.pdf — Background model and its observational falsification
+- fibonacci_perturbations.pdf — Perturbation-level hypothesis and detectability forecasts
 
-- [fibonacci_cosmology_falsified.pdf](fibonacci_cosmology_falsified.pdf) - Falsified model
-- [fibonacci_perturbations.pdf](fibonacci_perturbations.pdf) - Perturbation forecasts
+If you use this repository, please cite the corresponding paper(s).
+
+### Paper summaries
+- Background (falsified): A φ-recursive background expansion was tested against observations. H(z) fits, low-ℓ CMB residuals, and matter P(k) collectively rule it out with large Δχ². Key takeaway: φ is not a viable background constant for cosmic acceleration.
+- Perturbations (falsifiable): Keeping ΛCDM background, introduce dual log-periodic modulations governed by φ and φ−1 in the growth of structure. Predicts φ-spaced features in P(k) around the BAO scale and small CMB residual oscillations. Forecasts suggest near-future surveys could detect or refute these signals decisively.
+
+---
 
 ## Repository Contents
 
-### Analysis Scripts
-- `hz_fitter_v2.py` - H(z) cosmic chronometer analysis
-- `cmb_osc_detector_v2.py` - CMB log-periodic signal search
-- `lss_phi_analyzer.py` - Matter power spectrum P(k) analysis
-- `forecast_plots.py` - Generate forecast figures
-- `hz_forecast.py` - H(z) forecasts
-- `cmb_forecast.py` - CMB-S4 forecasts
+### New φ-Modulation Analysis Framework
 
-### Data Files
-- `real_hz.csv` - Cosmic chronometer H(z) measurements
-- `real_cmb_lowl.csv` - Planck low-ℓ CMB temperature anisotropies
-- `real_pk_lowk.csv` - SDSS/BOSS matter power spectrum
+A scientifically defensible framework implementing a two-parameter extension to ΛCDM testing for log-periodic oscillations in the matter power spectrum at scales determined by the golden ratio φ. This represents a shift from hypothesis-proving to hypothesis-testing with proper statistical rigor.
 
-### Figures
-- `hz_comparison_real.png` - H(z) falsification plot
-- `pk_phi_real.png` - P(k) residuals showing weak φ-scale
-- `cmb_osc_real.png` - CMB showing no log-periodic signal
-- `*_forecast.png` - Forecast plots for future experiments
+**New components:**
+- `src/phi_modulation.py` — Core `PhiModulationModel` class with CAMB integration
+- `notebooks/01_desi_forecasts.ipynb` — DESI Year 5 forecast analysis with Fisher matrix methodology
+- `figures/desi_forecasts.png` — 4-panel forecast figure (generated by notebook)
 
-## Quick Start
+**Quick start with new framework:**
+```python
+from src.phi_modulation import PhiModulationModel
+
+# Initialize model with Planck 2018 parameters
+model = PhiModulationModel()
+
+# Generate base ΛCDM power spectrum
+k, z, Pk = model.get_base_power_spectrum(k_min=0.01, k_max=0.3)
+
+# Apply φ-modulation: P_mod = P_ΛCDM × [1 + A_φ × cos(2π × log(k/k_pivot) / ln(φ) + φ_0)]
+Pk_mod, mod_factor = model.apply_phi_modulation(k, Pk[0], A_phi=0.01)
+
+# Forecast DESI sensitivity using Fisher matrix
+result = model.forecast_desi_sensitivity(A_phi_true=0.01)
+print(f"Forecast σ_Aφ = {result['sigma_Aphi']:.4f}, SNR = {result['SNR']:.2f}σ")
+```
+
+**Run the forecast notebook:**
+```bash
+jupyter notebook notebooks/01_desi_forecasts.ipynb
+```
+
+### Legacy Scripts and Notebooks
+
+Key scripts and notebooks (legacy analysis):
+- hz_fitter_v2.py — Fit H(z) cosmic-chronometer data against φ-recursive model and ΛCDM
+- cmb_osc_detector_v2.py — Search for log-periodic residuals in low-ℓ CMB TT
+- lss_phi_analyzer.py — Analyze matter power spectrum P(k) for φ-spaced oscillatory residuals
+- forecast_plots.py — Minimal example producing φ-oscillation forecast plot(s)
+- fetch_desi_bao_pk.py — Fetch/approximate DESI BAO summary and synthesize a sample P(k)
+- fibonacci_cosmology_analysis.ipynb — Notebook version of analysis/figures
+
+Data (CSV):
+- real_hz.csv — H(z) measurements (z, H, σ_H)
+- real_cmb_lowl.csv — Planck low-ℓ CMB TT (ℓ, C_ℓ, σ)
+- real_pk_lowk.csv — Low‑k matter power spectrum (k, P(k), σ)
+- pk_data.csv / pk_data_real.csv — Example/synthesized P(k) data (from scripts)
+
+Figures (generated):
+- hz_comparison_*.png — H(z) comparison plots
+- pk_phi*.png — P(k) residual/feature plots
+- cmb_osc*.png — CMB residual log‑periodic fit plots
+- *_forecast.png — Forecast visuals
+
+Docs:
+- FibonacciCosmologyAnalysis.md, CosmologicalTestResultsAnalysis.md, CosmicPerturbationHypothesis.md — narrative notes
+- LicenseAgreement.md — license and usage terms
+
+---
+
+## Usage Guide
+
+### New φ-Modulation Framework
+
+**Run the DESI forecast analysis notebook:**
+```bash
+jupyter notebook notebooks/01_desi_forecasts.ipynb
+```
+
+This notebook:
+- Tests different modulation amplitudes (A_φ = 0.005, 0.01, 0.02)
+- Generates 4-panel forecast figure:
+  - Power spectrum ratio (P_mod/P_base - 1) vs k
+  - BAO signature (ξ(r) comparison)
+  - DESI SNR vs amplitude
+  - Comparison with existing constraints
+- Prints forecast summary with σ_Aφ and SNR for each amplitude
+
+**Use the PhiModulationModel class in your own code:**
+```python
+from src.phi_modulation import PhiModulationModel
+import numpy as np
+
+# Initialize with default Planck 2018 parameters
+model = PhiModulationModel()
+
+# Or specify custom parameters
+custom_params = {
+    'H0': 67.36,
+    'ombh2': 0.02237,
+    'omch2': 0.1200,
+    'As': 2.1e-9,
+    'ns': 0.9649,
+    'tau': 0.0544
+}
+model = PhiModulationModel(params=custom_params)
+
+# Generate ΛCDM power spectrum
+k, z, Pk = model.get_base_power_spectrum(k_min=0.01, k_max=0.3, npoints=500)
+
+# Apply φ-modulation
+A_phi = 0.01  # Amplitude
+phi_phase = 0.0  # Phase offset
+k_pivot = 0.05  # Pivot scale [h/Mpc]
+Pk_mod, mod_factor = model.apply_phi_modulation(
+    k, Pk[0], A_phi=A_phi, phi_phase=phi_phase, k_pivot=k_pivot
+)
+
+# Compute BAO signature (correlation function)
+r, xi_base, xi_mod = model.compute_bao_signature(z=0.5, A_phi=A_phi)
+
+# Forecast DESI sensitivity
+forecast = model.forecast_desi_sensitivity(A_phi_true=A_phi)
+print(f"Forecast uncertainty: σ_Aφ = {forecast['sigma_Aphi']:.4f}")
+print(f"Signal-to-noise: SNR = {forecast['SNR']:.2f}σ")
+```
+
+### Legacy Scripts
+
+- Run `hz_fitter_v2.py` for H(z) falsification of the φ-recursive background against ΛCDM:
+  ```bash
+  python hz_fitter_v2.py
+  ```
+- Run `cmb_osc_detector_v2.py` for CMB low-ℓ residual log-periodic fit (dual φ/φ−1 modes):
+  ```bash
+  python cmb_osc_detector_v2.py
+  ```
+- Run `lss_phi_analyzer.py` for φ-spaced residuals in the matter power spectrum P(k):
+  ```bash
+  python lss_phi_analyzer.py
+  ```
+- Run `forecast_plots.py` for simple φ-oscillation forecast visualization:
+  ```bash
+  python forecast_plots.py
+  ```
+- Optional: run `fetch_desi_bao_pk.py` to reconstruct a sample P(k) from DESI DR2 BAO summary and save `pk_data_real.csv`:
+  ```bash
+  python fetch_desi_bao_pk.py
+  ```
+
+---
+
+## Data descriptions
+- real_hz.csv: Cosmic-chronometer H(z) catalog (columns: z, H, sigma_H).
+- real_cmb_lowl.csv: Planck TT low-ℓ summary (columns: ell, C_ell, sigma).
+- real_pk_lowk.csv: SDSS/BOSS P(k) for low-k scales (columns: k, P(k), sigma_Pk).
+- pk_data.csv: Simple synthetic P(k) used by examples.
+- pk_data_real.csv: Reconstructed P(k) produced by `fetch_desi_bao_pk.py` (DESI DR2–like).
+
+---
+
+## Requirements
+- Python 3.9–3.12
+- Packages (see requirements.txt):
+  - numpy, scipy, matplotlib, pandas
+  - astropy (for ΛCDM baseline comparisons)
+  - requests, beautifulsoup4 (for fetching)
+  - sympy, pillow (utilities/figures)
+  - **camb** (required for new φ-modulation framework — generates ΛCDM power spectra)
+  - **emcee, dynesty, corner** (for Bayesian analysis — optional but recommended)
+  - pyccl, desilike (optional — advanced cosmology tools)
+
+Install:
+```bash
+python -m venv .venv && source .venv/bin/activate  # on Windows: .venv\\Scripts\\activate
+pip install -r requirements.txt
+# If astropy is missing in your environment:
+pip install astropy
+```
+
+---
+
+## Quick Start (GitHub/local)
+Reproduce the main figures using the included CSVs. All scripts write PNG outputs to the project root by default.
+
+1) H(z) comparison (falsification figure):
+```bash
+python hz_fitter_v2.py
+```
+Outputs: hz_comparison_dual.png and console χ² values.
+
+2) CMB low‑ℓ residual log‑periodic fit:
+```bash
+python cmb_osc_detector_v2.py
+```
+Outputs: cmb_osc_dual.png and fitted amplitudes/phases (console).
+
+3) Matter power spectrum residuals and φ‑scales:
+```bash
+python lss_phi_analyzer.py
+```
+Outputs: pk_phi.png and console summary of peak matches.
+
+4) Forecast visual for P(k):
+```bash
+python forecast_plots.py
+```
+Outputs: pk_forecast.png
+
+5) Optional: synthesize P(k) from DESI BAO summary, then analyze:
+```bash
+python fetch_desi_bao_pk.py   # creates pk_data_real.csv
+python lss_phi_analyzer.py    # analyzes the CSV already present (or adjust path inside)
+```
+Notes:
+- If internet is disabled or the DESI URL changes, the fetch script falls back to a small DR2‑like mock table and still produces pk_data_real.csv.
+
+---
+
+## Using on Kaggle
+Kaggle Notebooks tips:
+
+- Kaggle link: https://www.kaggle.com/bryanpersaud
+- FAAC Notebook: https://www.kaggle.com/code/bryanpersaud/faac-notebook/
+- New: `fibonacci_cosmology_kaggle.py` — a Kaggle-ready script-notebook with robust data loading (GitHub online and local CSV offline fallback), quick-look plots, and a toy log-periodic fit. Add this file to your Kaggle Notebook (as a script) and run cells top-to-bottom.
+- Internet: Turn Internet on if you want `fetch_desi_bao_pk.py` to download BAO data or to load CSVs directly from GitHub. If off, upload `real_hz.csv`, `real_cmb_lowl.csv`, and `real_pk_lowk.csv` as Kaggle Dataset files; the loader falls back to local.
+- Data: The repository includes sample CSVs under the root; ensure they’re available in your Kaggle working directory (Dataset upload or Git clone step).
+- Environment: Use a Python 3.10+ image. Install deps at the top of your notebook:
+```
+!pip -q install numpy scipy matplotlib pandas astropy sympy pillow requests beautifulsoup4
+```
+- Running: Use the same commands as above in notebook cells (prefix with `!`), or simply run `fibonacci_cosmology_kaggle.py` cells to reproduce the quick-look analyses.
+- Outputs: Figures are saved to the working directory; use Kaggle’s “Output Files” to view/download PNGs.
+- Background vs Perturbations: See `docs/fib_recursion.md` for the revised write-up aligning with this repo (background falsified; perturbations testable).
+
+---
+
+## Run in Google Colab
+If you prefer Colab, start a new notebook, then run:
+
+- Install dependencies (as requested):
+```
+!pip install -q numpy scipy matplotlib pandas astropy camb astroquery emcee corner
+```
+- Clone or upload this repo/files, then run the same commands as locally, e.g.:
+```
+!python hz_fitter_v2.py
+!python cmb_osc_detector_v2.py
+!python lss_phi_analyzer.py
+```
+Notes:
+- Some optional packages (e.g., `camb`, `astroquery`, `emcee`, `corner`) are not strictly required by the included scripts but are useful for advanced experimentation.
+- Figures will be written to `/content` by default; use the Files panel to download.
+
+---
+
+## Reproducibility & Notes
+- Scripts are deterministic given the fixed input CSVs; random seeds are not used.
+- Baselines: Some routines approximate ΛCDM trends (e.g., polynomial baseline for low‑ℓ CMB) to isolate residuals; these are analysis conveniences, not full Boltzmann codes.
+- Units: P(k) is plotted in customary units; axes are labeled in each figure; see script headers for details.
+
+---
+
+## Project Structure
+
+```
+.
+├── src/                          # New: Core analysis modules
+│   ├── __init__.py
+│   └── phi_modulation.py        # PhiModulationModel class
+├── notebooks/                    # New: Analysis notebooks
+│   └── 01_desi_forecasts.ipynb  # DESI forecast analysis
+├── figures/                      # New: Output figures
+│   └── desi_forecasts.png       # Generated by notebook
+├── forecasts/                    # New: Forecast-specific outputs
+├── docs/                         # Documentation and notes
+│   └── New Fibonacci Test Theorem.md  # New approach documentation
+├── fibonacci_cosmology_falsified.pdf
+├── fibonacci_perturbations.pdf
+├── real_hz.csv
+├── real_cmb_lowl.csv
+├── real_pk_lowk.csv
+├── pk_data_real.csv
+├── hz_fitter_v2.py              # Legacy: H(z) analysis
+├── cmb_osc_detector_v2.py       # Legacy: CMB analysis
+├── lss_phi_analyzer.py          # Legacy: P(k) analysis
+├── forecast_plots.py            # Legacy: Forecast plots
+├── fetch_desi_bao_pk.py         # DESI data fetching
+├── fibonacci_cosmology_analysis.ipynb  # Legacy notebook
+└── requirements.txt
+```
+
+---
+
+## Data Sources & Attribution
+- H(z) cosmic chronometers: aggregated public compilations as provided in `real_hz.csv` (see file header/commit history for source notes).
+- Planck low-ℓ TT: simplified summary exported to `real_cmb_lowl.csv` for residual analysis convenience; refer to Planck Collaboration papers for the authoritative spectra.
+- Low‑k P(k): `real_pk_lowk.csv` represents a reduced P(k) sample suitable for demonstrating analysis workflows; see comments and commit history for provenance.
+- DESI DR2 BAO summary: fetched from `data.desi.lbl.gov` when Internet is enabled; otherwise `fetch_desi_bao_pk.py` uses a small offline fallback with DR2‑like parameters described in-script.
+
+Please credit the original survey teams when appropriate (Planck Collaboration, SDSS/BOSS/eBOSS, DESI Collaboration). This repository provides lightweight derivatives for method demonstration.
+
+---
+
+## License
+See LicenseAgreement.md for terms. If you need a conventional SPDX identifier for packaging, contact the author to clarify redistribution terms.
+
+---
+
+## Citation
+If this work contributes to your research, please cite the appropriate paper and this repository. Example placeholder (update with final bibliographic data):
+```
+@misc{persaud_fibonacci_cosmology,
+  author       = {Bryan David Persaud},
+  title        = {Fibonacci Cosmology: Falsified Background, Testable Perturbations},
+  year         = {2025},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/imediacorp/FaCC}
+}
+```
+
+---
+
+## Project Independence
+
+This cosmological research work is completely independent and separate from any other projects. It originated as a simple thought experiment and hypothesis exploring whether the Golden Ratio might be fundamental to cosmic structure, motivated by self-similarity patterns observed from plants to galaxies. See [INDEPENDENCE.md](INDEPENDENCE.md) for a detailed statement of project independence.
+
+---
+
+## Support
+Questions or issues: please open a GitHub issue or email bryan@imediacorp.com.
+
+---
+
+## Interactive Notebook
+
+Run all tests in Google Colab (no setup needed):
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/imediacorp/FaCC/blob/main/fibonacci_cosmology_analysis.ipynb
+)

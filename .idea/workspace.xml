@@ -5,35 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54a21d72-04f5-4bf5-9152-c1a9fc7a35bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CosmicPerturbationHypothesis.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CosmologicalTestResultsAnalysis.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FibonacciCosmologyAnalysis.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LicenseAgreement.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bh_phi_ratios.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmb_forecast.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmb_osc_detector_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/continuous_fibonacci.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extract_desi_pk.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fibonacci_cosmology_falsified.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fibonacci_perturbations.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forecast_plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hz_fitter_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hz_forecast.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/n_body_fib_dual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snippet2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/snippet3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/facc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/facc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/fib_recursion.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fibonacci_cosmology_analysis.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fibonacci_cosmology_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fibonacci_cosmology_kaggle.ipynb." afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmb_osc_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmb_osc_detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetch_desi_bao_pk.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetch_desi_bao_pk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hz_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hz_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hz_fitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/hz_fitter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lss_phi_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lss_phi_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pk_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pk_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippet.py" beforeDir="false" afterPath="$PROJECT_DIR$/snippet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +101,18 @@
       <workItem from="1761670894425" duration="4174000" />
       <workItem from="1761690221809" duration="598000" />
       <workItem from="1762038904387" duration="606000" />
-      <workItem from="1762187510248" duration="1601000" />
+      <workItem from="1762187510248" duration="8660000" />
+      <workItem from="1762299627316" duration="4343000" />
+      <workItem from="1762390508797" duration="2928000" />
+      <workItem from="1762457056289" duration="615000" />
+      <workItem from="1762536977821" duration="604000" />
+      <workItem from="1762626051628" duration="5190000" />
+      <workItem from="1762655454567" duration="608000" />
+      <workItem from="1762721697783" duration="9000" />
+      <workItem from="1763250878955" duration="2326000" />
+      <workItem from="1763769627421" duration="1912000" />
+      <workItem from="1765383149074" duration="1197000" />
+      <workItem from="1765680858185" duration="27000" />
     </task>
     <servers />
   </component>
@@ -142,7 +131,7 @@
     <SUITE FILE_PATH="coverage/facc$snippet2.coverage" NAME="snippet2 Coverage Results" MODIFIED="1761586418173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/facc$cmb_forecast.coverage" NAME="cmb_forecast Coverage Results" MODIFIED="1761673568401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/facc$n_body_fib_dual.coverage" NAME="n_body_fib_dual Coverage Results" MODIFIED="1761586737050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/facc$cmb_osc_detector.coverage" NAME="cmb_osc_detector Coverage Results" MODIFIED="1761669996538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/facc$cmb_osc_detector.coverage" NAME="cmb_osc_detector Coverage Results" MODIFIED="1762447799637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/facc$fetch_desi_bao_pk.coverage" NAME="fetch_desi_bao_pk Coverage Results" MODIFIED="1761501849328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/facc$snippet.coverage" NAME="snippet Coverage Results" MODIFIED="1761672201175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/facc$hz_forecast.coverage" NAME="hz_forecast Coverage Results" MODIFIED="1761673617242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
