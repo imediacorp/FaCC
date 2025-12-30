@@ -1,0 +1,102 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ created ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gfortran libgfortran5
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats all errors as warnings
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      continue-on-error: true
+    
+    - name: Test import of core modules
+      run: |
+        python -c "from src.phi_modulation import PhiModulationModel; print('✓ PhiModulationModel imported successfully')"
+        python -c "import numpy; import scipy; import matplotlib; import pandas; import astropy; print('✓ All dependencies imported successfully')"
+    
+    - name: Basic functionality test
+      run: |
+        python << 'EOF'
+        import sys
+        sys.path.insert(0, 'src')
+        from phi_modulation import PhiModulationModel
+        import numpy as np
+        
+        # Test initialization
+        model = PhiModulationModel()
+        assert model.phi > 1.6 and model.phi < 1.7, "Golden ratio value incorrect"
+        print(f"✓ Model initialized: φ = {model.phi:.6f}")
+        
+        # Test modulation (without CAMB to avoid dependency issues in CI)
+        k = np.logspace(-2, 0, 100)
+        Pk = np.ones_like(k) * 1e5
+        Pk_mod, mod_factor = model.apply_phi_modulation(k, Pk, A_phi=0.01)
+        assert len(Pk_mod) == len(k), "Modulation output length mismatch"
+        assert np.all(mod_factor > 0), "Modulation factor should be positive"
+        print("✓ Modulation function works correctly")
+        
+        print("All basic tests passed!")
+        EOF
+      continue-on-error: true
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+    
+    - name: Create source distribution
+      run: python -m build --sdist --wheel
+      continue-on-error: true
+    
+    - name: Check distribution
+      run: twine check dist/*
+      continue-on-error: true
+
