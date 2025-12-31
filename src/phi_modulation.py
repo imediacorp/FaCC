@@ -261,7 +261,10 @@ class PhiModulationModel:
         
         # Number of independent modes in each bin
         # N_modes = V_survey * k^2 * Δk / (2π^2)
-        N_modes = V_survey * k**2 * Delta_k / (2 * np.pi**2)
+        # Note: V_survey is in (Gpc/h)^3, convert to (Mpc/h)^3 for calculation
+        # 1 Gpc = 1000 Mpc, so (Gpc/h)^3 = 10^9 (Mpc/h)^3
+        V_survey_mpc = V_survey * 1e9  # Convert (Gpc/h)^3 to (Mpc/h)^3
+        N_modes = V_survey_mpc * k**2 * Delta_k / (2 * np.pi**2)
         
         # Add shot noise term: P_shot = 1/n_gal
         P_shot = 1.0 / n_gal
