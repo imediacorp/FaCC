@@ -97,11 +97,11 @@ class PhiModulationModel:
         
         # Compute results
         results = camb.get_results(pars)
-        powers = results.get_matter_power_spectrum(
+        kh, z_arr, pk = results.get_matter_power_spectrum(
             minkh=k_min, maxkh=k_max, npoints=npoints
         )
         
-        return powers.k, powers.z, powers.P_k
+        return kh, z_arr, pk
     
     def apply_phi_modulation(self, k, Pk, A_phi=0.01, phi_phase=0.0, k_pivot=0.05):
         """
