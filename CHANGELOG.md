@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-01-16
+
+### Added
+- `SystematicErrorBudget` class for modeling systematic uncertainties in forecasts
+  - Photo-z error modeling
+  - Galaxy bias uncertainty propagation
+  - Survey geometry effects
+  - Comprehensive error budget calculation
+- `BayesianEvidence` class for Bayesian model comparison
+  - Harmonic mean estimator for evidence calculation
+  - Bayes factor computation (φ-modulation vs ΛCDM)
+  - BIC computation and interpretation utilities
+- `forecast_desi_sensitivity_with_systematics()` method in `PhiModulationModel`
+  - Extended forecast method that includes systematic error contributions
+  - Returns detailed systematic error breakdown
+- `CITATION.cff` file for proper citation metadata
+- `examples/systematics_example.py` - Example script demonstrating systematic error analysis
+- Updated `src/__init__.py` to export new modules
+
+### Changed
+- Enhanced `PhiModulationModel` to integrate with systematic error analysis
+- Improved module organization and exports
+
 ## [0.1.0] - 2025-01-01
 
 ### Added

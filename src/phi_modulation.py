@@ -296,4 +296,96 @@ class PhiModulationModel:
             'SNR': SNR,
             'mod_factor': mod_factor
         }
+    
+    def forecast_desi_sensitivity_with_systematics(self, A_phi_true=0.01, 
+                                                   k_min=0.01, k_max=0.3, 
+                                                   n_k=50, include_systematics=True):
+        """
+        Forecast DESI sensitivity including systematic error budget
+        
+        This method extends forecast_desi_sensitivity() by including systematic
+        error contributions from photo-z errors, bias uncertainties, and survey geometry.
+        
+        Parameters
+        ----------
+        A_phi_true : float
+            True value of A_φ to forecast sensitivity for
+        k_min : float
+            Minimum k [h/Mpc] for DESI reliable range
+        k_max : float
+            Maximum k [h/Mpc] for DESI reliable range
+        n_k : int
+            Number of k bins
+        include_systematics : bool
+            Whether to include systematic error contributions
+            
+        Returns
+        -------
+        result : dict
+            Dictionary containing all fields from forecast_desi_sensitivity() plus:
+            - 'sigma_Aphi_stat': Statistical uncertainty only
+            - 'sigma_Aphi_sys': Systematic uncertainty contribution
+            - 'sigma_Aphi_total': Total uncertainty (stat + sys)
+            - 'systematic_budget': Detailed systematic error breakdown
+        """
+        # Get base forecast (statistical only)
+        base_result = self.forecast_desi_sensitivity(
+            A_phi_true=A_phi_true, k_min=k_min, k_max=k_max, n_k=n_k
+        )
+        
+        if not include_systematics:
+            # Return base result with consistent naming
+            result = base_result.copy()
+            result['sigma_Aphi_stat'] = result['sigma_Aphi']
+            result['sigma_Aphi_sys'] = 0.0
+            result['sigma_Aphi_total'] = result['sigma_Aphi']
+            return result
+        
+        # Import systematics module (avoid circular import)
+        try:
+            from .systematics import SystematicErrorBudget
+        except ImportError:
+            # If systematics module not available, return base result
+            warnings.warn("systematics module not available, returning statistical-only forecast")
+            result = base_result.copy()
+            result['sigma_Aphi_stat'] = result['sigma_Aphi']
+            result['sigma_Aphi_sys'] = 0.0
+            result['sigma_Aphi_total'] = result['sigma_Aphi']
+            return result
+        
+        # Compute systematic error budget
+        z_eff = 0.8  # DESI effective redshift
+        sys_budget = SystematicErrorBudget(z_eff=z_eff)
+        
+        k = base_result['k']
+        Pk_base = base_result['Pk_base']
+        sigma_P_stat = base_result['sigma_P']
+        dP_dAphi = Pk_base * (base_result['mod_factor'] - 1) / (A_phi_true + 1e-10)
+        
+        # Get systematic error breakdown
+        systematic_result = sys_budget.compute_systematic_budget(
+            k, Pk_base, sigma_P_stat
+        )
+        
+        # Propagate systematic errors to A_φ
+        sigma_Aphi_sys = sys_budget.propagate_to_Aphi(
+            k, systematic_result['sigma_P_sys'], dP_dAphi
+        )
+        
+        # Total uncertainty
+        sigma_Aphi_stat = base_result['sigma_Aphi']
+        sigma_Aphi_total = sys_budget.compute_total_Aphi_error(
+            sigma_Aphi_stat, sigma_Aphi_sys
+        )
+        
+        # Update result dictionary
+        result = base_result.copy()
+        result['sigma_Aphi_stat'] = sigma_Aphi_stat
+        result['sigma_Aphi_sys'] = sigma_Aphi_sys
+        result['sigma_Aphi_total'] = sigma_Aphi_total
+        result['sigma_Aphi'] = sigma_Aphi_total  # Update main uncertainty field
+        result['SNR'] = A_phi_true / (sigma_Aphi_total + 1e-20)  # Update SNR
+        result['systematic_budget'] = systematic_result
+        
+        return result
 

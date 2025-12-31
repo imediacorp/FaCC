@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite our papers and this repository."
+authors:
+  - family-names: Persaud
+    given-names: Bryan David
+    affiliation: Intermedia Communications Corp.
+    email: bryan@imediacorp.com
+title: "FaCC: Fibonacci as a Cosmological Constant - φ-Modulation Analysis for DESI"
+version: 0.1.0
+doi: 10.5281/zenodo.xxxxxxx
+date-released: 2025-01-01
+repository-code: "https://github.com/imediacorp/FaCC"
+license: MIT
+keywords:
+  - cosmology
+  - golden-ratio
+  - power-spectrum
+  - DESI
+  - large-scale-structure
+  - log-periodic-oscillations
+abstract: "Code repository for analyzing φ-modulated power spectrum perturbations as a testable extension to ΛCDM. Implements forecasts for DESI Year 5 sensitivity to log-periodic oscillations in large-scale structure at scales determined by the golden ratio φ ≈ 1.618."
+

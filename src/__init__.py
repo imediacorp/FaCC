@@ -12,3 +12,27 @@ from plants to galaxies.
 
 __version__ = "0.1.0"
 
+# Core modules
+from .phi_modulation import PhiModulationModel
+
+# Optional imports (may not be available in all environments)
+try:
+    from .systematics import SystematicErrorBudget
+except ImportError:
+    SystematicErrorBudget = None
+
+try:
+    from .bayesian_tools import BayesianEvidence, compute_bic, interpret_bic
+except ImportError:
+    BayesianEvidence = None
+    compute_bic = None
+    interpret_bic = None
+
+__all__ = [
+    'PhiModulationModel',
+    'SystematicErrorBudget',
+    'BayesianEvidence',
+    'compute_bic',
+    'interpret_bic',
+]
+
