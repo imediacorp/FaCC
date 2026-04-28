@@ -11,10 +11,6 @@ import numpy as np
 from numpy.typing import NDArray
 from scipy.signal import find_peaks
 from scipy.interpolate import UnivariateSpline
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from astropy.cosmology import FlatLambdaCDM  # noqa: F401 — available for callers
 
 _PHI = (1 + np.sqrt(5)) / 2
 
@@ -168,6 +164,10 @@ def run_lss_analysis(
         print(f"  φ^{i-5} × k_BAO = {ks:.6f} h/Mpc")
 
     # --- Plot ---
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 
     ax1.errorbar(k_data, pk_data, yerr=sigma_pk, fmt=".", label="Data", alpha=0.7)

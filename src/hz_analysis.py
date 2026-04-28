@@ -10,9 +10,6 @@ from __future__ import annotations
 import numpy as np
 from numpy.typing import NDArray
 from scipy.optimize import minimize, OptimizeResult
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 from astropy.cosmology import FlatLambdaCDM
 
 _PHI = (1 + np.sqrt(5)) / 2
@@ -122,6 +119,10 @@ def run_hz_analysis(
 
     cosmo_lcdm = FlatLambdaCDM(H0=70, Om0=0.3)
     h_lcdm = cosmo_lcdm.H(z_data).value
+
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
 
     plt.figure(figsize=(8, 5))
     plt.errorbar(z_data, h_data, yerr=sigma_h, fmt="o", label="Data")

@@ -11,9 +11,6 @@ from __future__ import annotations
 import numpy as np
 from numpy.typing import NDArray
 from scipy.optimize import curve_fit
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
 _PHI = (1 + np.sqrt(5)) / 2
 _LN_PHI = np.log(_PHI)
@@ -143,6 +140,10 @@ def run_cmb_analysis(
     amp_phi, phase_phi, amp_conj, phase_conj = popt
     print(f"Fitted amp_φ:    {amp_phi:.2e}, phase_φ:    {phase_phi:.2f}")
     print(f"Fitted amp_φ⁻¹:  {amp_conj:.2e}, phase_φ⁻¹:  {phase_conj:.2f}")
+
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
 
     plt.figure(figsize=(10, 6))
     plt.errorbar(ell, residuals, yerr=sigma_cl, fmt=".", label="Residuals", alpha=0.6)
