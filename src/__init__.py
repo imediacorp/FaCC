@@ -37,6 +37,17 @@ except ImportError:
     run_cmb_analysis = None
     run_lss_analysis = None
 
+try:
+    from .g_phi_analysis import run_g_phi_analysis
+except ImportError:
+    run_g_phi_analysis = None
+
+try:
+    from .desi_bao import run_desi_bao_analysis, fetch_desi_bao
+except ImportError:
+    run_desi_bao_analysis = None
+    fetch_desi_bao = None
+
 __all__ = [
     'PhiModulationModel',
     'SystematicErrorBudget',
@@ -47,5 +58,6 @@ __all__ = [
     'run_cmb_analysis',
     'run_lss_analysis',
     'compute_phi_scales',
+    'run_g_phi_analysis',
 ]
 
