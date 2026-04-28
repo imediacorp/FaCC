@@ -1,0 +1,4 @@
+# Development and testing tools — not needed for running analyses
+pytest>=7.4.0,<9.0
+pytest-cov>=4.1.0,<6.0
+flake8>=6.0.0,<8.0

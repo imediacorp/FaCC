@@ -11,7 +11,10 @@ that affect DESI power spectrum measurements, including:
 This cosmological research work is independent and separate from any other projects.
 """
 
+from __future__ import annotations
+
 import numpy as np
+from numpy.typing import NDArray
 from scipy.interpolate import interp1d
 import warnings
 
@@ -26,7 +29,7 @@ class SystematicErrorBudget:
     and combine them into an overall error budget for φ-modulation parameter constraints.
     """
     
-    def __init__(self, z_eff=0.8):
+    def __init__(self, z_eff: float = 0.8) -> None:
         """
         Initialize systematic error budget calculator
         
@@ -43,7 +46,7 @@ class SystematicErrorBudget:
         self.sigma_bias = 0.05  # Relative uncertainty in galaxy bias
         self.sigma_fnl = 0.1  # Uncertainty in local PNG parameter (if relevant)
         
-    def photo_z_error(self, k, Pk, sigma_z=None):
+    def photo_z_error(self, k: NDArray, Pk: NDArray, sigma_z: float | None = None) -> NDArray:
         """
         Estimate power spectrum error from photometric redshift uncertainties
         
@@ -91,7 +94,7 @@ class SystematicErrorBudget:
         
         return sigma_P_photoz
     
-    def bias_uncertainty(self, k, Pk, sigma_b=None):
+    def bias_uncertainty(self, k: NDArray, Pk: NDArray, sigma_b: float | None = None) -> NDArray:
         """
         Estimate power spectrum error from galaxy bias uncertainties
         
@@ -125,7 +128,7 @@ class SystematicErrorBudget:
         
         return sigma_P_bias
     
-    def survey_geometry_error(self, k, Pk, V_survey=100.0):
+    def survey_geometry_error(self, k: NDArray, Pk: NDArray, V_survey: float = 100.0) -> NDArray:
         """
         Estimate power spectrum error from survey geometry effects
         
@@ -161,9 +164,15 @@ class SystematicErrorBudget:
         
         return sigma_P_geometry
     
-    def compute_systematic_budget(self, k, Pk, sigma_P_stat, 
-                                  include_photoz=True, include_bias=True,
-                                  include_geometry=True):
+    def compute_systematic_budget(
+        self,
+        k: NDArray,
+        Pk: NDArray,
+        sigma_P_stat: NDArray,
+        include_photoz: bool = True,
+        include_bias: bool = True,
+        include_geometry: bool = True,
+    ) -> dict:
         """
         Compute total systematic error budget
         
@@ -237,7 +246,7 @@ class SystematicErrorBudget:
             'fraction_sys': fraction_sys
         }
     
-    def propagate_to_Aphi(self, k, sigma_P_sys, dP_dAphi):
+    def propagate_to_Aphi(self, k: NDArray, sigma_P_sys: NDArray, dP_dAphi: NDArray) -> float:
         """
         Propagate systematic errors to A_φ parameter constraint
         
@@ -270,7 +279,7 @@ class SystematicErrorBudget:
         
         return sigma_Aphi_sys
     
-    def compute_total_Aphi_error(self, sigma_Aphi_stat, sigma_Aphi_sys):
+    def compute_total_Aphi_error(self, sigma_Aphi_stat: float, sigma_Aphi_sys: float) -> float:
         """
         Combine statistical and systematic errors on A_φ
         

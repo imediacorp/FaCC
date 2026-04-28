@@ -28,11 +28,24 @@ except ImportError:
     compute_bic = None
     interpret_bic = None
 
+try:
+    from .hz_analysis import run_hz_analysis, fit_forward_branch, fit_reverse_branch
+    from .cmb_analysis import run_cmb_analysis, fit_dual_oscillations
+    from .lss_analysis import run_lss_analysis, compute_phi_scales
+except ImportError:
+    run_hz_analysis = None
+    run_cmb_analysis = None
+    run_lss_analysis = None
+
 __all__ = [
     'PhiModulationModel',
     'SystematicErrorBudget',
     'BayesianEvidence',
     'compute_bic',
     'interpret_bic',
+    'run_hz_analysis',
+    'run_cmb_analysis',
+    'run_lss_analysis',
+    'compute_phi_scales',
 ]
 

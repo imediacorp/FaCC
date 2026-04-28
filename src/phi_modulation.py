@@ -10,7 +10,10 @@ might be fundamental to cosmic structure, given self-similarity patterns observe
 from plants to galaxies.
 """
 
+from __future__ import annotations
+
 import numpy as np
+from numpy.typing import NDArray
 import camb
 from scipy.interpolate import interp1d
 import warnings
@@ -29,7 +32,7 @@ class PhiModulationModel:
     - Forecast DESI sensitivity using Fisher matrix analysis
     """
     
-    def __init__(self, params=None):
+    def __init__(self, params: dict | None = None) -> None:
         """
         Initialize with cosmological parameters
         
@@ -55,7 +58,9 @@ class PhiModulationModel:
         self.phi = (1 + np.sqrt(5)) / 2
         self.lnphi = np.log(self.phi)
         
-    def get_base_power_spectrum(self, k_min=1e-4, k_max=10, npoints=500, z=0.0):
+    def get_base_power_spectrum(
+        self, k_min: float = 1e-4, k_max: float = 10, npoints: int = 500, z: float = 0.0
+    ) -> tuple[NDArray, NDArray, NDArray]:
         """
         Get ΛCDM power spectrum using CAMB
         
@@ -103,7 +108,14 @@ class PhiModulationModel:
         
         return kh, z_arr, pk
     
-    def apply_phi_modulation(self, k, Pk, A_phi=0.01, phi_phase=0.0, k_pivot=0.05):
+    def apply_phi_modulation(
+        self,
+        k: NDArray,
+        Pk: NDArray,
+        A_phi: float = 0.01,
+        phi_phase: float = 0.0,
+        k_pivot: float = 0.05,
+    ) -> tuple[NDArray, NDArray]:
         """
         Apply φ-modulation to power spectrum
         
@@ -139,7 +151,14 @@ class PhiModulationModel:
         
         return Pk * modulation, modulation
     
-    def compute_bao_signature(self, z=0.5, A_phi=0.01, r_min=80, r_max=120, n_r=200):
+    def compute_bao_signature(
+        self,
+        z: float = 0.5,
+        A_phi: float = 0.01,
+        r_min: float = 80,
+        r_max: float = 120,
+        n_r: int = 200,
+    ) -> tuple[NDArray, NDArray, NDArray]:
         """
         Compute BAO signature with φ-modulation
         
@@ -204,7 +223,13 @@ class PhiModulationModel:
         
         return r, xi_base, xi_mod
     
-    def forecast_desi_sensitivity(self, A_phi_true=0.01, k_min=0.01, k_max=0.3, n_k=50):
+    def forecast_desi_sensitivity(
+        self,
+        A_phi_true: float = 0.01,
+        k_min: float = 0.01,
+        k_max: float = 0.3,
+        n_k: int = 50,
+    ) -> dict:
         """
         Forecast DESI sensitivity using Fisher matrix approximation
         
@@ -300,9 +325,14 @@ class PhiModulationModel:
             'mod_factor': mod_factor
         }
     
-    def forecast_desi_sensitivity_with_systematics(self, A_phi_true=0.01, 
-                                                   k_min=0.01, k_max=0.3, 
-                                                   n_k=50, include_systematics=True):
+    def forecast_desi_sensitivity_with_systematics(
+        self,
+        A_phi_true: float = 0.01,
+        k_min: float = 0.01,
+        k_max: float = 0.3,
+        n_k: int = 50,
+        include_systematics: bool = True,
+    ) -> dict:
         """
         Forecast DESI sensitivity including systematic error budget
         
