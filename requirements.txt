@@ -20,8 +20,9 @@ emcee>=3.1.0,<4.0
 dynesty>=2.0.0,<3.0
 corner>=2.2.0,<3.0
 
-# Interactive dashboard (optional — not required for core analysis)
+# Interactive dashboard (not required for core analysis)
 streamlit>=1.28.0,<2.0
+plotly>=5.18.0,<6.0
 
 # Optional advanced cosmology tools (uncomment if needed)
 # pyccl>=2.7.0,<4.0
