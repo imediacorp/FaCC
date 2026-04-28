@@ -1,5 +1,10 @@
 # Fibonacci Cosmology: Falsified Background, Testable Perturbations
 
+[![Python CI](https://github.com/imediacorp/FaCC/actions/workflows/python-ci.yml/badge.svg)](https://github.com/imediacorp/FaCC/actions/workflows/python-ci.yml)
+[![Python 3.9–3.12](https://img.shields.io/badge/python-3.9--3.12-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-preprint-b31b1b.svg)](https://arxiv.org/search/?searchtype=author&query=Persaud)
+
 Author: Bryan David Persaud  
 Affiliation: Intermedia Communications Corp.  
 Contact: bryan@imediacorp.com
@@ -282,6 +287,44 @@ MIT License — see [LICENSE](LICENSE).
 ## Project Independence
 
 This cosmological research work is completely independent and separate from any other projects. See [INDEPENDENCE.md](INDEPENDENCE.md) for a detailed statement.
+
+---
+
+## Troubleshooting
+
+**`ModuleNotFoundError: No module named 'camb'`**  
+CAMB requires a Fortran compiler. Install gfortran first (see System Requirements above), then `pip install camb`. The dashboard H(z), CMB, LSS, DESI BAO, and G–φ tabs all work without CAMB.
+
+**`ImportError: mach-o file, but is an incompatible architecture`** (Apple Silicon)  
+You have an x86_64 package installed in an arm64 Python environment (or vice versa). Create a fresh virtual environment with the native arm64 Python:
+```bash
+/usr/bin/python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**`ssl.SSLCertVerificationError` on macOS Python 3.13**  
+Run the certificate installer bundled with Python:
+```bash
+open /Applications/Python\ 3.13/Install\ Certificates.command
+```
+
+**`scipy.optimize` fails to converge in CMB fit**  
+The dual log-periodic fit can be sensitive to initial conditions. If `curve_fit` raises `RuntimeError`, your CMB data range may be too narrow. Ensure `real_cmb_lowl.csv` covers ℓ = 2–30.
+
+**DESI BAO tab shows a network error**  
+The tab fetches live data from GitHub. Check your internet connection. Data is cached for 1 hour per session — refreshing the page will retry.
+
+**Tests fail with `ModuleNotFoundError: No module named 'src'`**  
+Run pytest from the repo root:
+```bash
+cd /path/to/FaCC && pytest tests/ -v
+```
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the PR process, code style guide, and testing requirements.
 
 ---
 
