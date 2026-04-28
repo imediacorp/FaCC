@@ -6,9 +6,9 @@ authors:
     affiliation: Intermedia Communications Corp.
     email: bryan@imediacorp.com
 title: "FaCC: Fibonacci as a Cosmological Constant - φ-Modulation Analysis for DESI"
-version: 0.1.0
+version: 0.2.0
 doi: 10.5281/zenodo.xxxxxxx
-date-released: 2025-01-01
+date-released: 2026-04-28
 repository-code: "https://github.com/imediacorp/FaCC"
 license: MIT
 keywords:

@@ -10,7 +10,7 @@ might be fundamental to cosmic structure, given self-similarity patterns observe
 from plants to galaxies.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 # Core modules
 from .phi_modulation import PhiModulationModel

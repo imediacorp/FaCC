@@ -19,7 +19,7 @@ else:
 
 setup(
     name="facc",
-    version="0.1.0",
+    version="0.2.0",
     author="Bryan David Persaud",
     author_email="bryan@imediacorp.com",
     description="Fibonacci Cosmology: Testing φ-modulation in cosmic structure",
